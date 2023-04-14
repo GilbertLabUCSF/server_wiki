@@ -69,7 +69,6 @@ This method is really nice because it simplifies logging into our servers and ge
 Host marlowe
   User <YOUR_USERNAME_HERE>
   HostName marlowe.cc.ucsf.edu
-  ProxyJump bch-svr
 
 Host node9
   User <YOUR_USERNAME_HERE>
