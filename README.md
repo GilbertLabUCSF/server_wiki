@@ -186,6 +186,24 @@ Creating a conda environement is useful for isolating distinct projects. But if 
 
 ---
 
+## Creating Conda (but actually mamba) environments for R
+(mamba commands can be directly switched with conda)
+
+1. Install jupyter in your base environment:  
+  `mamba install -c conda-forge jupyterlab`
+2. Create new conda env and simultaneously install R base and Rkernel:  
+   `mamba create -n MY_R_ENV -c conda-forge r-base r-irkernel`
+3. Rkernel lets you 'install' this conda environment as a kernel on jupyter so you can select it in a jupyter notebook
+4. Once those are installed activate that environment:  
+  `mamba activate my_R_env`
+5. Verify that R is installed within that environment with `which R`  
+- This should look something like this: /my_home/mambaforge/envs/MY_R_ENV/bin/R
+6. Next, open up an R session by typing `R`
+7. Then finally to install that conda environment as a jupyter kernel, run this in that R session:  
+  `IRkernel::installspec(name = 'MY_R_ENV', displayname = 'My R Kernel')`
+Now when you go to create a new notebook you should see "My R Kernel" as an option
+
+
 ## Connect Node9 to the Internet
 To connect Node9 to the internet, you need to set up a proxy through the Marlowe head node. Add the following to your `.bashrc` in your home directory: 
 
